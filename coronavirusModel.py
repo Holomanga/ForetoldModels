@@ -17,7 +17,7 @@ targetDay = 60
 results = []
 for N in range(10000):
 	modelCases = cases[-1]
-	modelPercentageIncrease = percentageIncreases[-1]
+	modelPercentageIncrease = (43116/7814)**(1/(len(cases)-1)) - 1
 	hist = [modelCases]
 	for day in range(currentDay+1,targetDay+1):
 		modelPercentageIncrease *= choice(percentageDeltas)
