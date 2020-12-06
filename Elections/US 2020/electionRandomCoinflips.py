@@ -22,10 +22,10 @@ while T < N:
 	for iteration in range(100):
 		temporaryResults = list(runningResults)
 		for i in range(T,N):
-			temporaryResults.append(np.random.choice(outcomes,p=weights));
+			temporaryResults.append(np.random.choice(outcomes,p=weights))
 		#print(temporaryResults)
 		winner = max(temporaryResults,key=temporaryResults.count)
-		winners[T][winner] += 1;
+		winners[T][winner] += 1
 
 	runningResults.append(np.random.choice(outcomes,p=weights))
 
