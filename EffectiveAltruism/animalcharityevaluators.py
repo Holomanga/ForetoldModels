@@ -30,14 +30,16 @@ transitions = {
 # For each pair of years, append the transition to the appropriate transitions dictionary
 for charity in charities:
 	for year in range(len(charity)-1):
-		transitions[reviewStatusTypes[charity[year]]].append(reviewStatusTypes[charity[year]]+"->"+reviewStatusTypes[charity[year+1]])
+		transitions[reviewStatusTypes[charity[year]]].append(reviewStatusTypes[charity[year+1]])
 
 # Now calculate each transition as a % of total transitions and print the values
 uniqueTop, countsTop = np.unique(transitions["top"], return_counts=True)
-print(dict(zip(uniqueTop,countsTop/sum(countsTop))))
+topTransitions = dict(zip(uniqueTop,countsTop/sum(countsTop)))
 uniqueStandout, countsStandout = np.unique(transitions["standout"], return_counts=True)
-print(dict(zip(uniqueStandout,countsStandout/sum(countsStandout))))
+standoutTransitions =  dict(zip(uniqueStandout,countsStandout/sum(countsStandout)))
 uniqueComprehensive, countsComprehensive = np.unique(transitions["comprehensive"], return_counts=True)
-print(dict(zip(uniqueComprehensive,countsComprehensive/sum(countsComprehensive))))
+comprehensiveTransitions = dict(zip(uniqueComprehensive,countsComprehensive/sum(countsComprehensive)))
 uniqueNull, countsNull = np.unique(transitions["null"], return_counts=True)
-print(dict(zip(uniqueNull,countsNull/sum(countsNull))))
+nullTransitions = dict(zip(uniqueNull,countsNull/sum(countsNull)))
+
+totalNumberOfCharities = len(charities)
